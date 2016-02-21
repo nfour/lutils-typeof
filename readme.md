@@ -23,5 +23,4 @@ typeOf.Number(600) // true
 typeOf.Date(new Date()) // true
 typeOf.RegExp(/test/i) // true
 typeOf.NaN(NaN) // true
-
 ```
