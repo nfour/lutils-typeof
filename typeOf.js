@@ -6,9 +6,9 @@ var typeOf = function(value) {
     if ( type === 'number' && isNaN(value) ) return 'nan'
 
     return type
-};
+}
 
-[
+;[
     'Undefined',
     'Boolean',
     'String',
