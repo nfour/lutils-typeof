@@ -1,4 +1,4 @@
-var typeOf = function(value) {
+function typeOf(value) {
     var type = Object.prototype.toString.call(value)
         .slice(8, -1)
         .toLowerCase()
@@ -22,7 +22,9 @@ var typeOf = function(value) {
     'NaN',
 ].forEach(function(key) {
     var lowerKey = key.toLowerCase()
-    typeOf[key]  = function(value) { return typeOf(value) === lowerKey }
+
+    typeOf[lowerKey] =
+    typeOf[key]      = function(value) { return typeOf(value) === lowerKey }
 })
 
 module.exports = typeOf
