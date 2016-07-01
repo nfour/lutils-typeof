@@ -11,7 +11,6 @@ import typeOf from "lutils-typeof"
 typeOf({}) // "object"
 typeOf(5000) // "number"
 typeOf(NaN) // "nan"
-typeOf(NaN) // "nan"
 
 // Returns a boolean
 typeOf.Object({}) // true
