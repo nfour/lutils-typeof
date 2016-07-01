@@ -1,18 +1,19 @@
 var typeOf = require('./typeOf')
 
-var samples = {
-    'undefined'	: undefined,
-    'boolean'	: true,
-    'string'	: '""',
-    'function'	: function() {},
-    'array'		: [],
-    'object'	: {},
-    'null'		: null,
-    'number'	: 0,
-    'date'		: new Date(),
-    'regexp'	: /a/,
-    'nan'		: NaN,
-}
+var samples = [
+    [ 'undefined', undefined ],
+    [ 'boolean', true ],
+    [ 'string', '""' ],
+    [ 'function', function() {} ],
+    [ 'array', [] ],
+    [ 'object', {} ],
+    [ 'null', null ],
+    [ 'number', 0 ],
+    [ 'number', Infinity ],
+    [ 'date', new Date() ],
+    [ 'regexp', /a/ ],
+    [ 'nan', NaN ],
+]
 
 var typeKeys = [
     'Undefined',
@@ -28,10 +29,11 @@ var typeKeys = [
     'NaN',
 ]
 
-Object.keys(samples).forEach(function(key) {
-    var value = samples[key]
+samples.forEach(function(sample, index) {
+    var key   = sample[0]
+    var value = sample[1]
 
-    exports["typeOf." + key] = function(test) {
+    exports[index + " - typeOf." + key] = function(test) {
         test.ok( typeOf(value) === key )
 
         var upperKey = typeKeys.filter(function(_key) {
